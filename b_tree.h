@@ -6,46 +6,44 @@
 
 using std::vector;
 
-template <typename T>
 struct b_node
 {
 public:
-	b_node(T data = nullptr, b_node* rNode = nullptr, b_node* lNode = nullptr);
+	b_node(int data = 0, b_node* rNode = nullptr, b_node* lNode = nullptr);
 
-	inline void setRightNode(T data) { this->rNode = new b_node<T>(data); }
+	inline void setRightNode(int data) { this->rNode = new b_node(data); }
 
-	inline void setLeftNode(T data) { this->lNode = new b_node<T>(data); }
+	inline void setLeftNode(int data) { this->lNode = new b_node(data); }
 
-	T getData() { return data; }
+	int getData() { return data; }
 
-	b_node<T>* rNode;
-	b_node<T>* lNode;
+	b_node* rNode;
+	b_node* lNode;
 private:
-	T data;
+	int data;
 };
 
-template <class A>
 class B_Tree
 {
 public:
-	B_Tree(A data);
-	B_Tree(b_node<A>* root); // Implement later. Conflicts with depth logic
+	B_Tree(int data);
+	B_Tree(b_node* root); // Implement later. Conflicts with depth logic
 	~B_Tree();
-	void insert(A data);
-	b_node<A>* search(A data);
+	void insert(int data);
+	b_node* search(int data);
 	void printTree();
 
-	int getDepth() { return depth; }
+	int getSmallestData() { return smallestData; }
+	int getDepth();
 
 private:
-	void insert(A data, b_node<A>* b_node, int counter = 0);
-	void kill(b_node<A>* root);
+	void insert(int data, b_node* b_node, int counter = 0);
+	void kill(b_node* root);
 
-	b_node<A>* search(A data, b_node<A>* b_node);
-	b_node<A>* root;
-	b_node<A>* currentNode;
-	int depth; // Creates problems when making a tree from a subtree
+	b_node* search(int data, b_node* b_node);
+	b_node* root;
+	b_node* currentNode;
+	int smallestData;
 };
 
-#include "b_tree.hpp"
 #endif

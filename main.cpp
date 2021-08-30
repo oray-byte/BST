@@ -4,7 +4,7 @@
 int main()
 {
 	srand(time(nullptr));
-	B_Tree<int>* myTree = new B_Tree<int>(50);
+	B_Tree* myTree = new B_Tree(50);
 
 
 	myTree->insert(45);
@@ -16,7 +16,7 @@ int main()
 	myTree->insert(62);
 	myTree->insert(61);
 
-	std::cout << myTree->getDepth() << std::endl;
+	std::cout << myTree->getSmallestData() << std::endl;
 
 	delete myTree;
 	return 0;
