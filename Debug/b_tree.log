@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Programming\C++\b_tree\main.cpp(6,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  b_tree.vcxproj -> C:\Programming\C++\b_tree\Debug\b_tree.exe
